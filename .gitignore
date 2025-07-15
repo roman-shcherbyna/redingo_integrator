@@ -1,0 +1,41 @@
+# ----------------------------
+# Ignored by Git
+# ----------------------------
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+
+
+# Info
+info/
+
+#
+*.log
+*.sqlite3
+
+#
+build/
+dist/
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# System
+.DS_Store
+Thumbs.db
