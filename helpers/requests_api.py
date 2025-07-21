@@ -12,7 +12,7 @@ load_dotenv()
 
 async def send_product(client, sku, data, semaphore):
     API_URL = os.getenv("BASE_URL") + os.getenv("END_POINT_UPDATE")
-    token = f"Bearer {os.getenv("TOKEN")}"
+    token = f"Bearer {os.getenv('TOKEN')}"
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ async def requests_main_for_products(product_data_map):
 
 async def send_quantity(client, sku, data, semaphore):
     API_URL = os.getenv("BASE_URL") + os.getenv("END_POINT_ADD_STOCK")
-    token = f"Bearer {os.getenv("TOKEN")}"
+    token = f"Bearer {os.getenv('TOKEN')}"
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
