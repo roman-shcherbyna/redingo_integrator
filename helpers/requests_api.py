@@ -12,7 +12,7 @@ load_dotenv()
 
 async def send_product(client, sku, data, semaphore):
     API_URL = os.getenv("BASE_URL") + os.getenv("END_POINT_UPDATE")
-    token = f"Bearer {os.getenv("TOKEN")}"
+    token = f"Bearer {os.getenv('TOKEN')}"
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
@@ -25,6 +25,7 @@ async def send_product(client, sku, data, semaphore):
                 "product": {
                     "sku": sku,
                     "name": data["name_first"],
+                    "price": float(data["price_brutto"]),
                     "attribute_set_id": data["attribute_set_id"],
                     "visibility": data["visibility"],
                     "status": data["status"],
@@ -33,7 +34,7 @@ async def send_product(client, sku, data, semaphore):
             resp = await client.post(API_URL, json=payload, headers=headers)
             resp.raise_for_status()
             result = resp.json()
-            logger.debug(f"[PAYLOAD] {sku} : {payload}")
+            logger.debug(f"[NEW PRODUCT PAYLOAD] {sku} : {payload}")
             logger.debug(f"[OK] {sku} : {result}")
             return result
         except Exception as e:
@@ -58,7 +59,7 @@ async def requests_main_for_products(product_data_map):
 
 async def send_quantity(client, sku, data, semaphore):
     API_URL = os.getenv("BASE_URL") + os.getenv("END_POINT_ADD_STOCK")
-    token = f"Bearer {os.getenv("TOKEN")}"
+    token = f"Bearer {os.getenv('TOKEN')}"
     headers = {
         "Accept": "application/json",
         "Content-Type": "application/json",
