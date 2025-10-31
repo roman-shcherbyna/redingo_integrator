@@ -10,7 +10,7 @@ def main():
     check_lock_file()
 
     try:
-        create_lock_file()
+        create_lock_file() 
 
         create_basic_dirs()
 
