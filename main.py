@@ -38,3 +38,5 @@ def main():
 if __name__ == "__main__":
     main()
     print('text')
+    print('text')
+    print('text3')
